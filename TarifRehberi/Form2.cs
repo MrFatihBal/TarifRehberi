@@ -164,6 +164,7 @@ namespace TarifRehberi
 		{
 			ApplyFilters();
 		}
+		//commit
 
 		private void ApplyFilters()
 		{
