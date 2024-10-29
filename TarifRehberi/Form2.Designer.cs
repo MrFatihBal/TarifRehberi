@@ -47,41 +47,50 @@
 			// 
 			// dataGridViewRecipes
 			// 
+			this.dataGridViewRecipes.BackgroundColor = System.Drawing.SystemColors.ScrollBar;
 			this.dataGridViewRecipes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridViewRecipes.Location = new System.Drawing.Point(12, 102);
 			this.dataGridViewRecipes.Name = "dataGridViewRecipes";
-			this.dataGridViewRecipes.Size = new System.Drawing.Size(896, 553);
+			this.dataGridViewRecipes.Size = new System.Drawing.Size(1319, 667);
 			this.dataGridViewRecipes.TabIndex = 0;
 			this.dataGridViewRecipes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewRecipes_CellDoubleClick);
 			// 
 			// searchBox
 			// 
-			this.searchBox.Location = new System.Drawing.Point(23, 21);
+			this.searchBox.BackColor = System.Drawing.SystemColors.ScrollBar;
+			this.searchBox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+			this.searchBox.Location = new System.Drawing.Point(97, 21);
 			this.searchBox.Name = "searchBox";
 			this.searchBox.Size = new System.Drawing.Size(156, 20);
 			this.searchBox.TabIndex = 1;
 			// 
 			// ingredientSearchBox
 			// 
-			this.ingredientSearchBox.Location = new System.Drawing.Point(23, 64);
+			this.ingredientSearchBox.BackColor = System.Drawing.SystemColors.ScrollBar;
+			this.ingredientSearchBox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+			this.ingredientSearchBox.Location = new System.Drawing.Point(97, 64);
 			this.ingredientSearchBox.Name = "ingredientSearchBox";
 			this.ingredientSearchBox.Size = new System.Drawing.Size(156, 20);
 			this.ingredientSearchBox.TabIndex = 2;
 			// 
 			// searchButton
 			// 
-			this.searchButton.Location = new System.Drawing.Point(185, 21);
+			this.searchButton.BackColor = System.Drawing.SystemColors.ScrollBar;
+			this.searchButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+			this.searchButton.Location = new System.Drawing.Point(259, 21);
 			this.searchButton.Name = "searchButton";
 			this.searchButton.Size = new System.Drawing.Size(69, 66);
 			this.searchButton.TabIndex = 3;
 			this.searchButton.Text = "Ara";
-			this.searchButton.UseVisualStyleBackColor = true;
+			this.searchButton.UseVisualStyleBackColor = false;
 			this.searchButton.Click += new System.EventHandler(this.SearchButton_Click);
 			// 
 			// comboBoxCategory
 			// 
+			this.comboBoxCategory.BackColor = System.Drawing.SystemColors.ScrollBar;
+			this.comboBoxCategory.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.comboBoxCategory.FormattingEnabled = true;
-			this.comboBoxCategory.Location = new System.Drawing.Point(792, 21);
+			this.comboBoxCategory.Location = new System.Drawing.Point(1187, 18);
 			this.comboBoxCategory.Name = "comboBoxCategory";
 			this.comboBoxCategory.Size = new System.Drawing.Size(99, 21);
 			this.comboBoxCategory.TabIndex = 4;
@@ -90,7 +99,8 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(77, 5);
+			this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+			this.label1.Location = new System.Drawing.Point(151, 5);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(75, 13);
 			this.label1.TabIndex = 5;
@@ -99,7 +109,8 @@
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(444, 5);
+			this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+			this.label2.Location = new System.Drawing.Point(661, 2);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(45, 13);
 			this.label2.TabIndex = 6;
@@ -108,7 +119,8 @@
 			// label3
 			// 
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(772, 5);
+			this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+			this.label3.Location = new System.Drawing.Point(1167, 2);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(48, 13);
 			this.label3.TabIndex = 7;
@@ -117,7 +129,9 @@
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(702, 24);
+			this.label4.BackColor = System.Drawing.SystemColors.ScrollBar;
+			this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+			this.label4.Location = new System.Drawing.Point(1097, 21);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(45, 13);
 			this.label4.TabIndex = 8;
@@ -125,8 +139,10 @@
 			// 
 			// comboBoxIngredientCount
 			// 
+			this.comboBoxIngredientCount.BackColor = System.Drawing.SystemColors.ScrollBar;
+			this.comboBoxIngredientCount.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.comboBoxIngredientCount.FormattingEnabled = true;
-			this.comboBoxIngredientCount.Location = new System.Drawing.Point(792, 48);
+			this.comboBoxIngredientCount.Location = new System.Drawing.Point(1187, 45);
 			this.comboBoxIngredientCount.Name = "comboBoxIngredientCount";
 			this.comboBoxIngredientCount.Size = new System.Drawing.Size(99, 21);
 			this.comboBoxIngredientCount.TabIndex = 9;
@@ -134,8 +150,10 @@
 			// 
 			// comboBoxCostRange
 			// 
+			this.comboBoxCostRange.BackColor = System.Drawing.SystemColors.ScrollBar;
+			this.comboBoxCostRange.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.comboBoxCostRange.FormattingEnabled = true;
-			this.comboBoxCostRange.Location = new System.Drawing.Point(792, 75);
+			this.comboBoxCostRange.Location = new System.Drawing.Point(1187, 72);
 			this.comboBoxCostRange.Name = "comboBoxCostRange";
 			this.comboBoxCostRange.Size = new System.Drawing.Size(99, 21);
 			this.comboBoxCostRange.TabIndex = 10;
@@ -144,7 +162,9 @@
 			// label5
 			// 
 			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(702, 51);
+			this.label5.BackColor = System.Drawing.SystemColors.ScrollBar;
+			this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+			this.label5.Location = new System.Drawing.Point(1097, 48);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(76, 13);
 			this.label5.TabIndex = 11;
@@ -153,7 +173,9 @@
 			// label6
 			// 
 			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(705, 83);
+			this.label6.BackColor = System.Drawing.SystemColors.ScrollBar;
+			this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+			this.label6.Location = new System.Drawing.Point(1100, 80);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(39, 13);
 			this.label6.TabIndex = 12;
@@ -161,8 +183,10 @@
 			// 
 			// comboBoxSort
 			// 
+			this.comboBoxSort.BackColor = System.Drawing.SystemColors.ScrollBar;
+			this.comboBoxSort.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.comboBoxSort.FormattingEnabled = true;
-			this.comboBoxSort.Location = new System.Drawing.Point(410, 48);
+			this.comboBoxSort.Location = new System.Drawing.Point(627, 45);
 			this.comboBoxSort.Name = "comboBoxSort";
 			this.comboBoxSort.Size = new System.Drawing.Size(121, 21);
 			this.comboBoxSort.TabIndex = 13;
@@ -172,7 +196,8 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(951, 707);
+			this.BackColor = System.Drawing.SystemColors.ScrollBar;
+			this.ClientSize = new System.Drawing.Size(1343, 781);
 			this.Controls.Add(this.comboBoxSort);
 			this.Controls.Add(this.label6);
 			this.Controls.Add(this.label5);

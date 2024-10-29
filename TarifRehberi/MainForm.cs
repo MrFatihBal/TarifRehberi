@@ -12,24 +12,18 @@ using System.Windows.Forms;
 
 namespace TarifRehberi
 {
-	public partial class Form1 : Form
+	public partial class MainForm : Form
 	{
 		public string connectionString;
 		
 		
 		Db db = new Db();
-		public Form1()
+		public MainForm()
 		{
 			InitializeComponent();
 			connectionString = ConfigurationManager.ConnectionStrings["TarifRehberiContext"].ConnectionString;
 			db.CreateDatabaseAndTables();
 			db.InsertSampleData();
-		}
-
-		
-		private void Form1_Load(object sender, EventArgs e)
-		{
-
 		}
 
 		private void btnTarifleriListele_Click(object sender, EventArgs e)
@@ -48,6 +42,11 @@ namespace TarifRehberi
 		{
 			Form4 malzemeKayitForm = new Form4();
 			malzemeKayitForm.Show();
+
+		}
+
+		private void pictureBox1_Click(object sender, EventArgs e)
+		{
 
 		}
 	}

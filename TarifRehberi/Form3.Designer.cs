@@ -37,22 +37,24 @@
 			// 
 			// btnEkle
 			// 
+			this.btnEkle.BackColor = System.Drawing.Color.PapayaWhip;
 			this.btnEkle.Location = new System.Drawing.Point(40, 243);
 			this.btnEkle.Name = "btnEkle";
 			this.btnEkle.Size = new System.Drawing.Size(220, 66);
 			this.btnEkle.TabIndex = 0;
-			this.btnEkle.Text = "Tarif Ekle";
-			this.btnEkle.UseVisualStyleBackColor = true;
+			this.btnEkle.Text = "                             Tarif                               Ekle";
+			this.btnEkle.UseVisualStyleBackColor = false;
 			this.btnEkle.Click += new System.EventHandler(this.btnEkle_Click);
 			// 
 			// btnGuncelle
 			// 
+			this.btnGuncelle.BackColor = System.Drawing.Color.PapayaWhip;
 			this.btnGuncelle.Location = new System.Drawing.Point(838, 243);
 			this.btnGuncelle.Name = "btnGuncelle";
 			this.btnGuncelle.Size = new System.Drawing.Size(220, 62);
 			this.btnGuncelle.TabIndex = 1;
-			this.btnGuncelle.Text = "Tarif Güncelle";
-			this.btnGuncelle.UseVisualStyleBackColor = true;
+			this.btnGuncelle.Text = "                          Tarif                          Güncelle/Sil";
+			this.btnGuncelle.UseVisualStyleBackColor = false;
 			this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
 			// 
 			// pictureBox1
@@ -65,6 +67,7 @@
 			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
 			this.pictureBox1.TabIndex = 2;
 			this.pictureBox1.TabStop = false;
+			this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
 			// 
 			// Form3
 			// 

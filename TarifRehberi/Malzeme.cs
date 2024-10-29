@@ -8,10 +8,11 @@ namespace TarifRehberi
 {
 	public class Malzeme
 	{
-		public int Id {  get; set; }
-
+		public int MalzemeID { get; set; }
 		public string Adi { get; set; }
 		public double Miktar { get; set; }
+		public string Birim { get; set; }
+		public int BirimFiyat { get; set; }
 	}
 
 	public class Tarif
@@ -26,6 +27,7 @@ namespace TarifRehberi
 	public class TarifMalzeme
 	{
 		public int Id { get; set; }
+		public decimal MalzemeMiktar {  get; set; }
 
 	}
 }

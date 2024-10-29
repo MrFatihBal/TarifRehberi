@@ -52,9 +52,11 @@
 			this.label7 = new System.Windows.Forms.Label();
 			this.txtMalzemeMiktar = new System.Windows.Forms.TextBox();
 			this.label8 = new System.Windows.Forms.Label();
-			this.comboMalzemeBirim = new System.Windows.Forms.ComboBox();
+			this.cmbMalzemeBirim = new System.Windows.Forms.ComboBox();
 			this.pictureBox2 = new System.Windows.Forms.PictureBox();
 			this.pictureBox3 = new System.Windows.Forms.PictureBox();
+			this.cmbMalzeme = new System.Windows.Forms.ComboBox();
+			this.label9 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -64,30 +66,36 @@
 			// 
 			// dataGridView1
 			// 
+			this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ScrollBar;
 			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaption;
 			this.dataGridView1.Location = new System.Drawing.Point(12, 12);
 			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.Size = new System.Drawing.Size(512, 729);
+			this.dataGridView1.Size = new System.Drawing.Size(651, 771);
 			this.dataGridView1.TabIndex = 0;
 			this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+			this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
 			// 
 			// txtTarifAdi
 			// 
-			this.txtTarifAdi.Location = new System.Drawing.Point(542, 53);
+			this.txtTarifAdi.BackColor = System.Drawing.SystemColors.ScrollBar;
+			this.txtTarifAdi.Location = new System.Drawing.Point(672, 53);
 			this.txtTarifAdi.Name = "txtTarifAdi";
 			this.txtTarifAdi.Size = new System.Drawing.Size(128, 20);
 			this.txtTarifAdi.TabIndex = 1;
 			// 
 			// txtMalzemeAdi
 			// 
-			this.txtMalzemeAdi.Location = new System.Drawing.Point(920, 67);
+			this.txtMalzemeAdi.BackColor = System.Drawing.SystemColors.ScrollBar;
+			this.txtMalzemeAdi.Location = new System.Drawing.Point(1102, 128);
 			this.txtMalzemeAdi.Name = "txtMalzemeAdi";
-			this.txtMalzemeAdi.Size = new System.Drawing.Size(179, 20);
+			this.txtMalzemeAdi.Size = new System.Drawing.Size(256, 20);
 			this.txtMalzemeAdi.TabIndex = 2;
 			// 
 			// txtHazirlamaSuresi
 			// 
-			this.txtHazirlamaSuresi.Location = new System.Drawing.Point(542, 268);
+			this.txtHazirlamaSuresi.BackColor = System.Drawing.SystemColors.ScrollBar;
+			this.txtHazirlamaSuresi.Location = new System.Drawing.Point(672, 268);
 			this.txtHazirlamaSuresi.Name = "txtHazirlamaSuresi";
 			this.txtHazirlamaSuresi.Size = new System.Drawing.Size(128, 20);
 			this.txtHazirlamaSuresi.TabIndex = 3;
@@ -95,7 +103,7 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(539, 21);
+			this.label1.Location = new System.Drawing.Point(669, 21);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(48, 13);
 			this.label1.TabIndex = 4;
@@ -104,7 +112,7 @@
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(539, 132);
+			this.label2.Location = new System.Drawing.Point(669, 132);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(45, 13);
 			this.label2.TabIndex = 5;
@@ -113,7 +121,7 @@
 			// label3
 			// 
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(539, 234);
+			this.label3.Location = new System.Drawing.Point(669, 234);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(83, 13);
 			this.label3.TabIndex = 6;
@@ -121,8 +129,9 @@
 			// 
 			// comboKategori
 			// 
+			this.comboKategori.BackColor = System.Drawing.SystemColors.ScrollBar;
 			this.comboKategori.FormattingEnabled = true;
-			this.comboKategori.Location = new System.Drawing.Point(542, 161);
+			this.comboKategori.Location = new System.Drawing.Point(672, 161);
 			this.comboKategori.Name = "comboKategori";
 			this.comboKategori.Size = new System.Drawing.Size(121, 21);
 			this.comboKategori.TabIndex = 7;
@@ -130,7 +139,7 @@
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(917, 35);
+			this.label4.Location = new System.Drawing.Point(1099, 96);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(69, 13);
 			this.label4.TabIndex = 8;
@@ -138,37 +147,41 @@
 			// 
 			// btnMalzemeEkle
 			// 
-			this.btnMalzemeEkle.Location = new System.Drawing.Point(1135, 47);
+			this.btnMalzemeEkle.BackColor = System.Drawing.SystemColors.ScrollBar;
+			this.btnMalzemeEkle.Location = new System.Drawing.Point(1400, 38);
 			this.btnMalzemeEkle.Name = "btnMalzemeEkle";
-			this.btnMalzemeEkle.Size = new System.Drawing.Size(116, 144);
+			this.btnMalzemeEkle.Size = new System.Drawing.Size(116, 183);
 			this.btnMalzemeEkle.TabIndex = 9;
 			this.btnMalzemeEkle.Text = "ekle";
-			this.btnMalzemeEkle.UseVisualStyleBackColor = true;
+			this.btnMalzemeEkle.UseVisualStyleBackColor = false;
 			this.btnMalzemeEkle.Click += new System.EventHandler(this.btnMalzemeEkle_Click);
 			// 
 			// btnMalzemeDegistir
 			// 
-			this.btnMalzemeDegistir.Location = new System.Drawing.Point(1135, 206);
+			this.btnMalzemeDegistir.BackColor = System.Drawing.SystemColors.ScrollBar;
+			this.btnMalzemeDegistir.Location = new System.Drawing.Point(1400, 234);
 			this.btnMalzemeDegistir.Name = "btnMalzemeDegistir";
-			this.btnMalzemeDegistir.Size = new System.Drawing.Size(116, 142);
+			this.btnMalzemeDegistir.Size = new System.Drawing.Size(116, 175);
 			this.btnMalzemeDegistir.TabIndex = 10;
 			this.btnMalzemeDegistir.Text = "değiştir";
-			this.btnMalzemeDegistir.UseVisualStyleBackColor = true;
+			this.btnMalzemeDegistir.UseVisualStyleBackColor = false;
 			this.btnMalzemeDegistir.Click += new System.EventHandler(this.btnMalzemeDegistir_Click);
 			// 
 			// btnMalzemeSil
 			// 
-			this.btnMalzemeSil.Location = new System.Drawing.Point(920, 358);
+			this.btnMalzemeSil.BackColor = System.Drawing.SystemColors.ScrollBar;
+			this.btnMalzemeSil.Location = new System.Drawing.Point(1102, 419);
 			this.btnMalzemeSil.Name = "btnMalzemeSil";
-			this.btnMalzemeSil.Size = new System.Drawing.Size(319, 31);
+			this.btnMalzemeSil.Size = new System.Drawing.Size(414, 70);
 			this.btnMalzemeSil.TabIndex = 11;
 			this.btnMalzemeSil.Text = "sil";
-			this.btnMalzemeSil.UseVisualStyleBackColor = true;
+			this.btnMalzemeSil.UseVisualStyleBackColor = false;
 			this.btnMalzemeSil.Click += new System.EventHandler(this.btnMalzemeSil_Click);
 			// 
 			// txtTalimat
 			// 
-			this.txtTalimat.Location = new System.Drawing.Point(542, 382);
+			this.txtTalimat.BackColor = System.Drawing.SystemColors.ScrollBar;
+			this.txtTalimat.Location = new System.Drawing.Point(672, 382);
 			this.txtTalimat.Name = "txtTalimat";
 			this.txtTalimat.Size = new System.Drawing.Size(266, 147);
 			this.txtTalimat.TabIndex = 12;
@@ -177,7 +190,7 @@
 			// label5
 			// 
 			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(539, 342);
+			this.label5.Location = new System.Drawing.Point(669, 342);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(41, 13);
 			this.label5.TabIndex = 13;
@@ -185,54 +198,58 @@
 			// 
 			// btnGuncelle
 			// 
-			this.btnGuncelle.Location = new System.Drawing.Point(542, 587);
+			this.btnGuncelle.BackColor = System.Drawing.SystemColors.ScrollBar;
+			this.btnGuncelle.Location = new System.Drawing.Point(672, 587);
 			this.btnGuncelle.Name = "btnGuncelle";
 			this.btnGuncelle.Size = new System.Drawing.Size(266, 65);
 			this.btnGuncelle.TabIndex = 14;
 			this.btnGuncelle.Text = "güncelle";
-			this.btnGuncelle.UseVisualStyleBackColor = true;
+			this.btnGuncelle.UseVisualStyleBackColor = false;
 			this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
 			// 
 			// btnSil
 			// 
-			this.btnSil.Location = new System.Drawing.Point(542, 680);
+			this.btnSil.BackColor = System.Drawing.SystemColors.ScrollBar;
+			this.btnSil.Location = new System.Drawing.Point(672, 680);
 			this.btnSil.Name = "btnSil";
 			this.btnSil.Size = new System.Drawing.Size(266, 61);
 			this.btnSil.TabIndex = 15;
 			this.btnSil.Text = "sil";
-			this.btnSil.UseVisualStyleBackColor = true;
+			this.btnSil.UseVisualStyleBackColor = false;
 			this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
 			// 
 			// dataGridView2
 			// 
+			this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.ScrollBar;
 			this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView2.Location = new System.Drawing.Point(906, 414);
+			this.dataGridView2.Location = new System.Drawing.Point(1102, 527);
 			this.dataGridView2.Name = "dataGridView2";
-			this.dataGridView2.Size = new System.Drawing.Size(354, 339);
+			this.dataGridView2.Size = new System.Drawing.Size(435, 256);
 			this.dataGridView2.TabIndex = 16;
 			this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
 			// 
 			// pictureBox1
 			// 
 			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-			this.pictureBox1.Location = new System.Drawing.Point(826, -2);
+			this.pictureBox1.Location = new System.Drawing.Point(985, -2);
 			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(10, 755);
+			this.pictureBox1.Size = new System.Drawing.Size(21, 796);
 			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.pictureBox1.TabIndex = 17;
 			this.pictureBox1.TabStop = false;
 			// 
 			// txtBirimFiyat
 			// 
-			this.txtBirimFiyat.Location = new System.Drawing.Point(920, 217);
+			this.txtBirimFiyat.BackColor = System.Drawing.SystemColors.ScrollBar;
+			this.txtBirimFiyat.Location = new System.Drawing.Point(1102, 278);
 			this.txtBirimFiyat.Name = "txtBirimFiyat";
-			this.txtBirimFiyat.Size = new System.Drawing.Size(179, 20);
+			this.txtBirimFiyat.Size = new System.Drawing.Size(256, 20);
 			this.txtBirimFiyat.TabIndex = 21;
 			// 
 			// label6
 			// 
 			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(917, 188);
+			this.label6.Location = new System.Drawing.Point(1099, 249);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(54, 13);
 			this.label6.TabIndex = 22;
@@ -241,7 +258,7 @@
 			// label7
 			// 
 			this.label7.AutoSize = true;
-			this.label7.Location = new System.Drawing.Point(917, 111);
+			this.label7.Location = new System.Drawing.Point(1099, 172);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(81, 13);
 			this.label7.TabIndex = 24;
@@ -249,34 +266,37 @@
 			// 
 			// txtMalzemeMiktar
 			// 
-			this.txtMalzemeMiktar.Location = new System.Drawing.Point(920, 140);
+			this.txtMalzemeMiktar.BackColor = System.Drawing.SystemColors.ScrollBar;
+			this.txtMalzemeMiktar.Location = new System.Drawing.Point(1102, 201);
 			this.txtMalzemeMiktar.Name = "txtMalzemeMiktar";
-			this.txtMalzemeMiktar.Size = new System.Drawing.Size(179, 20);
+			this.txtMalzemeMiktar.Size = new System.Drawing.Size(256, 20);
 			this.txtMalzemeMiktar.TabIndex = 23;
 			// 
 			// label8
 			// 
 			this.label8.AutoSize = true;
-			this.label8.Location = new System.Drawing.Point(917, 268);
+			this.label8.Location = new System.Drawing.Point(1099, 329);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(74, 13);
 			this.label8.TabIndex = 25;
 			this.label8.Text = "Malzeme Birim";
 			// 
-			// comboMalzemeBirim
+			// cmbMalzemeBirim
 			// 
-			this.comboMalzemeBirim.FormattingEnabled = true;
-			this.comboMalzemeBirim.Location = new System.Drawing.Point(920, 298);
-			this.comboMalzemeBirim.Name = "comboMalzemeBirim";
-			this.comboMalzemeBirim.Size = new System.Drawing.Size(121, 21);
-			this.comboMalzemeBirim.TabIndex = 26;
+			this.cmbMalzemeBirim.BackColor = System.Drawing.SystemColors.ScrollBar;
+			this.cmbMalzemeBirim.ForeColor = System.Drawing.Color.Black;
+			this.cmbMalzemeBirim.FormattingEnabled = true;
+			this.cmbMalzemeBirim.Location = new System.Drawing.Point(1102, 359);
+			this.cmbMalzemeBirim.Name = "cmbMalzemeBirim";
+			this.cmbMalzemeBirim.Size = new System.Drawing.Size(256, 21);
+			this.cmbMalzemeBirim.TabIndex = 26;
 			// 
 			// pictureBox2
 			// 
 			this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-			this.pictureBox2.Location = new System.Drawing.Point(852, -2);
+			this.pictureBox2.Location = new System.Drawing.Point(1057, -2);
 			this.pictureBox2.Name = "pictureBox2";
-			this.pictureBox2.Size = new System.Drawing.Size(10, 755);
+			this.pictureBox2.Size = new System.Drawing.Size(22, 796);
 			this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.pictureBox2.TabIndex = 27;
 			this.pictureBox2.TabStop = false;
@@ -284,21 +304,44 @@
 			// pictureBox3
 			// 
 			this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-			this.pictureBox3.Location = new System.Drawing.Point(880, -2);
+			this.pictureBox3.Location = new System.Drawing.Point(1021, -2);
 			this.pictureBox3.Name = "pictureBox3";
-			this.pictureBox3.Size = new System.Drawing.Size(10, 755);
+			this.pictureBox3.Size = new System.Drawing.Size(21, 796);
 			this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.pictureBox3.TabIndex = 28;
 			this.pictureBox3.TabStop = false;
+			// 
+			// cmbMalzeme
+			// 
+			this.cmbMalzeme.BackColor = System.Drawing.SystemColors.ScrollBar;
+			this.cmbMalzeme.FormattingEnabled = true;
+			this.cmbMalzeme.Location = new System.Drawing.Point(1102, 54);
+			this.cmbMalzeme.Name = "cmbMalzeme";
+			this.cmbMalzeme.Size = new System.Drawing.Size(256, 21);
+			this.cmbMalzeme.TabIndex = 29;
+			this.cmbMalzeme.SelectedIndexChanged += new System.EventHandler(this.cmbMalzeme_SelectedIndexChanged);
+			// 
+			// label9
+			// 
+			this.label9.AutoSize = true;
+			this.label9.BackColor = System.Drawing.SystemColors.ScrollBar;
+			this.label9.Location = new System.Drawing.Point(1099, 38);
+			this.label9.Name = "label9";
+			this.label9.Size = new System.Drawing.Size(69, 13);
+			this.label9.TabIndex = 30;
+			this.label9.Text = "Malzeme seç";
 			// 
 			// TarifGuncelleForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1272, 753);
+			this.BackColor = System.Drawing.SystemColors.ScrollBar;
+			this.ClientSize = new System.Drawing.Size(1549, 795);
+			this.Controls.Add(this.label9);
+			this.Controls.Add(this.cmbMalzeme);
 			this.Controls.Add(this.pictureBox3);
 			this.Controls.Add(this.pictureBox2);
-			this.Controls.Add(this.comboMalzemeBirim);
+			this.Controls.Add(this.cmbMalzemeBirim);
 			this.Controls.Add(this.label8);
 			this.Controls.Add(this.label7);
 			this.Controls.Add(this.txtMalzemeMiktar);
@@ -360,8 +403,10 @@
 		private System.Windows.Forms.Label label7;
 		private System.Windows.Forms.TextBox txtMalzemeMiktar;
 		private System.Windows.Forms.Label label8;
-		private System.Windows.Forms.ComboBox comboMalzemeBirim;
+		private System.Windows.Forms.ComboBox cmbMalzemeBirim;
 		private System.Windows.Forms.PictureBox pictureBox2;
 		private System.Windows.Forms.PictureBox pictureBox3;
+		private System.Windows.Forms.ComboBox cmbMalzeme;
+		private System.Windows.Forms.Label label9;
 	}
 }

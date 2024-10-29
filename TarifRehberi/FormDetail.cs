@@ -23,7 +23,6 @@ namespace TarifRehberi
 
 		private void FormDetail_Load(object sender, EventArgs e)
 		{
-			// Yükleme işlemleri
 		}
 
 		private void SetupForm()
@@ -32,7 +31,6 @@ namespace TarifRehberi
 			this.Size = new Size(800, 600);
 			this.BackColor = Color.White;
 
-			// Sol panel
 			Panel leftPanel = new Panel
 			{
 				Location = new Point(0, 0),
@@ -41,7 +39,6 @@ namespace TarifRehberi
 			};
 			this.Controls.Add(leftPanel);
 
-			// Sağ panel
 			Panel rightPanel = new Panel
 			{
 				Location = new Point(400, 0),
@@ -49,19 +46,15 @@ namespace TarifRehberi
 				BackColor = Color.LightGray
 			};
 			this.Controls.Add(rightPanel);
-
-			// Font büyütme
 			Font largeFont = new Font("Arial", 12, FontStyle.Bold);
 			Font normalFont = new Font("Arial", 10);
 
-			// Sol paneldeki kontroller
 			Label labelTarifAdi = new Label { Location = new Point(20, 20), AutoSize = true, Font = largeFont };
 			Label labelKategori = new Label { Location = new Point(20, 60), AutoSize = true, Font = normalFont };
 			Label labelSure = new Label { Location = new Point(20, 100), AutoSize = true, Font = normalFont };
 			Label labelMalzemeler = new Label { Location = new Point(20, 140), AutoSize = true, Font = normalFont };
 			leftPanel.Controls.AddRange(new Control[] { labelTarifAdi, labelKategori, labelSure, labelMalzemeler });
 
-			// Sağ paneldeki kontroller
 			Label labelTalimatlar = new Label
 			{
 				Location = new Point(20, 20),
@@ -71,7 +64,6 @@ namespace TarifRehberi
 			};
 			rightPanel.Controls.Add(labelTalimatlar);
 
-			// Veri ataması
 			labelTarifAdi.Text = recipeData["TarifAdi"].ToString();
 			labelKategori.Text = "Kategori: " + recipeData["Kategori"].ToString();
 			labelSure.Text = "Hazırlama Süresi: " + recipeData["HazirlamaSuresi"] + " dakika";

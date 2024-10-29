@@ -29,5 +29,10 @@ namespace TarifRehberi
 			TarifGuncelleForm tarifGuncelleForm = new TarifGuncelleForm();
 			tarifGuncelleForm.ShowDialog();	
 		}
+
+		private void pictureBox1_Click(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

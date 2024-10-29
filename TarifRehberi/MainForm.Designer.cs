@@ -1,6 +1,6 @@
 ﻿namespace TarifRehberi
 {
-	partial class Form1
+	partial class MainForm
 	{
 		/// <summary>
 		///Gerekli tasarımcı değişkeni.
@@ -28,7 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.btnMalzemeKayit = new System.Windows.Forms.Button();
 			this.btnTarifYonetimi = new System.Windows.Forms.Button();
 			this.btnTarifleriListele = new System.Windows.Forms.Button();
@@ -39,7 +39,7 @@
 			// btnMalzemeKayit
 			// 
 			this.btnMalzemeKayit.BackColor = System.Drawing.Color.BurlyWood;
-			this.btnMalzemeKayit.Location = new System.Drawing.Point(496, 382);
+			this.btnMalzemeKayit.Location = new System.Drawing.Point(659, 418);
 			this.btnMalzemeKayit.Name = "btnMalzemeKayit";
 			this.btnMalzemeKayit.Size = new System.Drawing.Size(214, 59);
 			this.btnMalzemeKayit.TabIndex = 2;
@@ -50,7 +50,7 @@
 			// btnTarifYonetimi
 			// 
 			this.btnTarifYonetimi.BackColor = System.Drawing.Color.BurlyWood;
-			this.btnTarifYonetimi.Location = new System.Drawing.Point(496, 260);
+			this.btnTarifYonetimi.Location = new System.Drawing.Point(659, 310);
 			this.btnTarifYonetimi.Name = "btnTarifYonetimi";
 			this.btnTarifYonetimi.Size = new System.Drawing.Size(214, 59);
 			this.btnTarifYonetimi.TabIndex = 3;
@@ -62,7 +62,7 @@
 			// 
 			this.btnTarifleriListele.BackColor = System.Drawing.Color.BurlyWood;
 			this.btnTarifleriListele.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.btnTarifleriListele.Location = new System.Drawing.Point(496, 150);
+			this.btnTarifleriListele.Location = new System.Drawing.Point(659, 199);
 			this.btnTarifleriListele.Name = "btnTarifleriListele";
 			this.btnTarifleriListele.Size = new System.Drawing.Size(214, 59);
 			this.btnTarifleriListele.TabIndex = 4;
@@ -76,23 +76,23 @@
 			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
 			this.pictureBox1.Location = new System.Drawing.Point(0, 0);
 			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(821, 749);
+			this.pictureBox1.Size = new System.Drawing.Size(994, 780);
 			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.pictureBox1.TabIndex = 5;
 			this.pictureBox1.TabStop = false;
+			this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
 			// 
-			// Form1
+			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(821, 749);
+			this.ClientSize = new System.Drawing.Size(994, 780);
 			this.Controls.Add(this.btnTarifleriListele);
 			this.Controls.Add(this.btnTarifYonetimi);
 			this.Controls.Add(this.btnMalzemeKayit);
 			this.Controls.Add(this.pictureBox1);
-			this.Name = "Form1";
-			this.Text = "Form1";
-			this.Load += new System.EventHandler(this.Form1_Load);
+			this.Name = "MainForm";
+			this.Text = "MainForm";
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
 

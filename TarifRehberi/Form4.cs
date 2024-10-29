@@ -14,13 +14,12 @@ namespace TarifRehberi
 		{
 			InitializeComponent();
 			connectionString = ConfigurationManager.ConnectionStrings["TarifRehberiContext"].ConnectionString;
+			dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 			TabloyuOlustur();
 		}
 
-		// Form yüklendiğinde malzemeleri listele ve combobox doldur
 		private void Form4_Load(object sender, EventArgs e)
 		{
-			// Malzeme Birimlerini ComboBox'a ekleyelim
 			comboBoxMalzemeBirim.Items.AddRange(new string[] {
 				"Kilogram",
 				"Litre",
@@ -29,15 +28,12 @@ namespace TarifRehberi
 				"Demet",
 				"Paket"
 			});
-
-			// Varsayılan olarak ilk öğeyi seçelim
 			comboBoxMalzemeBirim.SelectedIndex = 0;
 
-			// Malzemeleri listele
+			MalzemeleriListele();
 			MalzemelerimiListele();
 		}
 
-		// Veritabanında tablo oluşturma
 		private void TabloyuOlustur()
 		{
 			try
@@ -54,11 +50,9 @@ namespace TarifRehberi
                             MalzemeBirim NVARCHAR(50),
                             BirimFiyat DECIMAL(10, 2)
                         )";
-
 					SqlCommand komut = new SqlCommand(tabloSorgusu, baglanti);
 					komut.ExecuteNonQuery();
 				}
-				MessageBox.Show("Malzemelerim tablosu başarıyla oluşturuldu veya zaten mevcut.");
 			}
 			catch (Exception ex)
 			{
@@ -66,7 +60,27 @@ namespace TarifRehberi
 			}
 		}
 
-		// Malzemeleri DataGridView'de listelemek için
+		private void MalzemeleriListele()
+		{
+			try
+			{
+				using (SqlConnection baglanti = new SqlConnection(connectionString))
+				{
+					baglanti.Open();
+					SqlDataAdapter da = new SqlDataAdapter("SELECT MalzemeAdi FROM Malzemeler", baglanti);
+					DataTable dt = new DataTable();
+					da.Fill(dt);
+
+					comboBoxMalzemeler.DataSource = dt;
+					comboBoxMalzemeler.DisplayMember = "MalzemeAdi";
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Malzemeleri listelerken hata oluştu: " + ex.Message);
+			}
+		}
+
 		private void MalzemelerimiListele()
 		{
 			try
@@ -86,33 +100,110 @@ namespace TarifRehberi
 			}
 		}
 
-		// Malzeme ekleme
-		private void btnEkle_Click(object sender, EventArgs e)
+		private void comboBoxMalzemeler_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			string secilenMalzeme = comboBoxMalzemeler.Text;
+			MalzemeDetaylariniDoldur(secilenMalzeme);
+		}
+
+		private void MalzemeDetaylariniDoldur(string malzemeAdi)
 		{
 			try
 			{
 				using (SqlConnection baglanti = new SqlConnection(connectionString))
 				{
 					baglanti.Open();
-					SqlCommand komut = new SqlCommand("INSERT INTO Malzemelerim (MalzemelerimAdi, MalzemeMiktar, MalzemeBirim, BirimFiyat) VALUES (@MalzemelerimAdi, @MalzemeMiktar, @MalzemeBirim, @BirimFiyat)", baglanti);
+					SqlCommand komut = new SqlCommand("SELECT MalzemeAdi, ToplamMiktar, MalzemeBirim, BirimFiyat FROM Malzemeler WHERE MalzemeAdi = @MalzemeAdi", baglanti);
+					komut.Parameters.AddWithValue("@MalzemeAdi", malzemeAdi);
 
-					komut.Parameters.AddWithValue("@MalzemelerimAdi", txtMalzemeAdi.Text);
-					komut.Parameters.AddWithValue("@MalzemeMiktar", double.Parse(txtMalzemeMiktar.Text));
-					komut.Parameters.AddWithValue("@MalzemeBirim", comboBoxMalzemeBirim.SelectedItem.ToString());
-					komut.Parameters.AddWithValue("@BirimFiyat", decimal.Parse(txtBirimFiyat.Text));
-
-					komut.ExecuteNonQuery();
+					SqlDataReader dr = komut.ExecuteReader();
+					if (dr.Read())
+					{
+						txtMalzemeAdi.Text = dr["MalzemeAdi"].ToString();
+						txtMalzemeMiktar.Text = dr["ToplamMiktar"].ToString();
+						comboBoxMalzemeBirim.SelectedItem = dr["MalzemeBirim"].ToString();
+						txtBirimFiyat.Text = dr["BirimFiyat"].ToString();
+					}
 				}
-				MessageBox.Show("Malzeme başarıyla eklendi.");
-				MalzemelerimiListele(); // Listeyi güncelle
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Malzeme bilgilerini alırken hata oluştu: " + ex.Message);
+			}
+		}
+
+		// Malzeme ekleme
+		private void btnEkle_Click(object sender, EventArgs e)
+		{
+			string secilenMalzeme = txtMalzemeAdi.Text;
+
+			if (MalzemeVarMi(secilenMalzeme))
+			{
+				MalzemeyiEkle(secilenMalzeme);
+			}
+			else
+			{
+				MalzemeyiHerIkiTabloyaEkle(secilenMalzeme);
+			}
+
+			MalzemelerimiListele();
+		}
+
+		private bool MalzemeVarMi(string malzemeAdi)
+		{
+			try
+			{
+				using (SqlConnection baglanti = new SqlConnection(connectionString))
+				{
+					baglanti.Open();
+					SqlCommand komut = new SqlCommand("SELECT COUNT(*) FROM Malzemelerim WHERE MalzemelerimAdi = @MalzemeAdi", baglanti);
+					komut.Parameters.AddWithValue("@MalzemeAdi", malzemeAdi);
+
+					int count = (int)komut.ExecuteScalar();
+					return count > 0;
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Hata oluştu: " + ex.Message);
+				return false;
+			}
+		}
+		private void MalzemeyiEkle(string malzemeAdi)
+		{
+			try
+			{
+				using (SqlConnection baglanti = new SqlConnection(connectionString))
+				{
+					baglanti.Open();
+					SqlCommand komutMalzemelerimiKontrol = new SqlCommand("SELECT COUNT(*) FROM Malzemelerim WHERE MalzemelerimAdi = @MalzemeAdi", baglanti);
+					komutMalzemelerimiKontrol.Parameters.AddWithValue("@MalzemeAdi", malzemeAdi);
+					int malzemeCount = (int)komutMalzemelerimiKontrol.ExecuteScalar();
+
+					if (malzemeCount == 0)
+					{
+						
+						SqlCommand komut = new SqlCommand("INSERT INTO Malzemelerim (MalzemelerimAdi, MalzemeMiktar, MalzemeBirim, BirimFiyat) VALUES (@MalzemelerimAdi, @MalzemeMiktar, @MalzemeBirim, @BirimFiyat)", baglanti);
+
+						komut.Parameters.AddWithValue("@MalzemelerimAdi", malzemeAdi);
+						komut.Parameters.AddWithValue("@MalzemeMiktar", double.Parse(txtMalzemeMiktar.Text));
+						komut.Parameters.AddWithValue("@MalzemeBirim", comboBoxMalzemeBirim.SelectedItem.ToString());
+						komut.Parameters.AddWithValue("@BirimFiyat", decimal.Parse(txtBirimFiyat.Text));
+
+						komut.ExecuteNonQuery();
+						MessageBox.Show("Malzeme başarıyla Malzemelerim tablosuna eklendi.");
+					}
+					else
+					{
+						MessageBox.Show("Bu malzeme zaten Malzemelerim tablosuna ekli.");
+					}
+				}
 			}
 			catch (Exception ex)
 			{
 				MessageBox.Show("Hata oluştu: " + ex.Message);
 			}
 		}
-
-		// Malzeme güncelleme
 		private void btnGuncelle_Click(object sender, EventArgs e)
 		{
 			try
@@ -135,7 +226,7 @@ namespace TarifRehberi
 						komut.ExecuteNonQuery();
 					}
 					MessageBox.Show("Malzeme başarıyla güncellendi.");
-					MalzemelerimiListele(); // Listeyi güncelle
+					MalzemelerimiListele(); 
 				}
 				else
 				{
@@ -147,8 +238,6 @@ namespace TarifRehberi
 				MessageBox.Show("Hata oluştu: " + ex.Message);
 			}
 		}
-
-		// Malzeme silme
 		private void btnSil_Click(object sender, EventArgs e)
 		{
 			try
@@ -166,7 +255,7 @@ namespace TarifRehberi
 						komut.ExecuteNonQuery();
 					}
 					MessageBox.Show("Malzeme başarıyla silindi.");
-					MalzemelerimiListele(); // Listeyi güncelle
+					MalzemelerimiListele(); 
 				}
 				else
 				{
@@ -178,10 +267,50 @@ namespace TarifRehberi
 				MessageBox.Show("Hata oluştu: " + ex.Message);
 			}
 		}
-
-		private void comboBoxMalzemeBirim_SelectedIndexChanged(object sender, EventArgs e)
+		private void MalzemeyiHerIkiTabloyaEkle(string malzemeAdi)
 		{
+			try
+			{
+				using (SqlConnection baglanti = new SqlConnection(connectionString))
+				{
+					baglanti.Open();
 
+					SqlCommand komutMalzemelerKontrol = new SqlCommand("SELECT COUNT(*) FROM Malzemeler WHERE MalzemeAdi = @MalzemeAdi", baglanti);
+					komutMalzemelerKontrol.Parameters.AddWithValue("@MalzemeAdi", malzemeAdi);
+					int malzemeCount = (int)komutMalzemelerKontrol.ExecuteScalar();
+
+					if (malzemeCount == 0)
+					{
+						SqlCommand komutMalzemeler = new SqlCommand("INSERT INTO Malzemeler (MalzemeAdi, ToplamMiktar, MalzemeBirim, BirimFiyat) VALUES (@MalzemeAdi, @ToplamMiktar, @MalzemeBirim, @BirimFiyat)", baglanti);
+						komutMalzemeler.Parameters.AddWithValue("@MalzemeAdi", malzemeAdi);
+						komutMalzemeler.Parameters.AddWithValue("@ToplamMiktar", double.Parse(txtMalzemeMiktar.Text));
+						komutMalzemeler.Parameters.AddWithValue("@MalzemeBirim", comboBoxMalzemeBirim.SelectedItem.ToString());
+						komutMalzemeler.Parameters.AddWithValue("@BirimFiyat", decimal.Parse(txtBirimFiyat.Text));
+
+						komutMalzemeler.ExecuteNonQuery();
+						MessageBox.Show("Malzeme başarıyla her iki tabloya eklendi.");
+					}
+
+					MalzemeyiEkle(malzemeAdi);
+				}
+				
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Hata oluştu: " + ex.Message);
+			}
+		}
+
+		private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+		{
+			if (dataGridView1.SelectedRows.Count > 0)
+			{
+				DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+				txtMalzemeAdi.Text = selectedRow.Cells["MalzemelerimAdi"].Value.ToString();
+				txtMalzemeMiktar.Text = selectedRow.Cells["MalzemeMiktar"].Value.ToString();
+				txtBirimFiyat.Text = selectedRow.Cells["BirimFiyat"].Value.ToString();
+				comboBoxMalzemeBirim.SelectedItem = selectedRow.Cells["MalzemeBirim"].Value.ToString();
+			}
 		}
 	}
 }

@@ -79,8 +79,6 @@ namespace TarifRehberi
 						command.ExecuteNonQuery();
 						
 					}
-
-					MessageBox.Show("Veritabanı ve tablolar başarıyla oluşturuldu.");
 				}
 			}
 			catch (Exception ex)
@@ -95,70 +93,68 @@ namespace TarifRehberi
 				using (SqlConnection connection = new SqlConnection(connectionString))
 				{
 					connection.Open();
-
-					// Malzemeler tablosuna örnek veriler ekleme
 					var malzemeler = new[]
 					{
-				new { Adi = "Yoğurt", Birim = "kg", Fiyat = 20.0 },
-				new { Adi = "Tereyağı", Birim = "kg", Fiyat = 80.0 },
-				new { Adi = "Un", Birim = "kg", Fiyat = 8.0 },
-				new { Adi = "Mercimek", Birim = "kg", Fiyat = 15.0 },
-				new { Adi = "Domates", Birim = "kg", Fiyat = 10.0 },
-				new { Adi = "Salatalık", Birim = "kg", Fiyat = 7.0 },
-				new { Adi = "Soğan", Birim = "kg", Fiyat = 5.0 },
-				new { Adi = "Marul", Birim = "adet", Fiyat = 3.0 },
-				new { Adi = "Tavuk", Birim = "kg", Fiyat = 30.0 },
-				new { Adi = "Patlıcan", Birim = "kg", Fiyat = 12.0 },
-				new { Adi = "Kıyma", Birim = "kg", Fiyat = 90.0 },
-				new { Adi = "Pirinç", Birim = "kg", Fiyat = 12.0 },
-				new { Adi = "Hamur", Birim = "kg", Fiyat = 25.0 },
-				new { Adi = "Fıstık", Birim = "kg", Fiyat = 100.0 },
-				new { Adi = "Süt", Birim = "litre", Fiyat = 7.0 },
-				new { Adi = "Limon", Birim = "adet", Fiyat = 1.5 },
-				new { Adi = "Şeker", Birim = "kg", Fiyat = 6.0 },
-				new { Adi = "Su", Birim = "litre", Fiyat = 1.0 },
-				new { Adi = "Bulgur", Birim = "kg", Fiyat = 15.0 },
-	            new { Adi = "Şehriye", Birim = "kg", Fiyat = 12.0 },
-				new { Adi = "Tarhana", Birim = "kg", Fiyat = 25.0 },
-				new { Adi = "Havuç", Birim = "kg", Fiyat = 8.0 },
-				new { Adi = "Kabak", Birim = "kg", Fiyat = 10.0 },
-				new { Adi = "Patates", Birim = "kg", Fiyat = 6.0 },
-				new { Adi = "Balık", Birim = "kg", Fiyat = 45.0 },
-				new { Adi = "Kuzu Eti", Birim = "kg", Fiyat = 80.0 },
-				new { Adi = "Biber", Birim = "kg", Fiyat = 10.0 },
-				new { Adi = "Roka", Birim = "demet", Fiyat = 5.0 },
-				new { Adi = "Bezelye", Birim = "kg", Fiyat = 14.0 },
-				new { Adi = "İnce Bulgur", Birim = "kg", Fiyat = 18.0 },
-				new { Adi = "Ton Balığı", Birim = "konserve", Fiyat = 12.0 },
-				new { Adi = "Mısır", Birim = "kg", Fiyat = 7.0 },
-				new { Adi = "Avokado", Birim = "adet", Fiyat = 15.0 },
-				new { Adi = "Mayonez", Birim = "kg", Fiyat = 18.0 },
-				new { Adi = "Tavuk Göğsü", Birim = "kg", Fiyat = 25.0 },
-				new { Adi = "Makarna", Birim = "paket", Fiyat = 6.0 },
-				new { Adi = "Enginar", Birim = "adet", Fiyat = 10.0 },
-				new { Adi = "Zeytinyağı", Birim = "lt", Fiyat = 40.0 },
-				new { Adi = "Limon Suyu", Birim = "lt", Fiyat = 20.0 },
-				new { Adi = "Kuskus", Birim = "kg", Fiyat = 10.0 },
-				new { Adi = "Spagetti", Birim = "paket", Fiyat = 7.0 },
-				new { Adi = "Kaşar Peyniri", Birim = "kg", Fiyat = 35.0 },
-				new { Adi = "Ekmek İçi", Birim = "adet", Fiyat = 2.0 },
-				new { Adi = "Yufka", Birim = "adet", Fiyat = 5.0 },
-				new { Adi = "Ceviz", Birim = "kg", Fiyat = 80.0 },
-				new { Adi = "Çikolata", Birim = "adet", Fiyat = 10.0 },
-				new { Adi = "Kuru Fasulye", Birim = "kg", Fiyat = 12.0 },
-				new { Adi = "Vanilya", Birim = "paket", Fiyat = 3.0 },
-				new { Adi = "Kedidili", Birim = "paket", Fiyat = 12.0 },
-				new { Adi = "Kahve", Birim = "kg", Fiyat = 50.0 },
-				new { Adi = "Mascarpone", Birim = "kg", Fiyat = 60.0 },
-				new { Adi = "Meyve", Birim = "kg", Fiyat = 20.0 },
-				new { Adi = "Puding", Birim = "paket", Fiyat = 8.0 },
-				new { Adi = "Karamel", Birim = "paket", Fiyat = 15.0 },
-				new { Adi = "Sakız", Birim = "paket", Fiyat = 5.0 },
-				new { Adi = "Yumurta", Birim = "adet", Fiyat = 2.5 },
-				new { Adi = "Bal", Birim = "kg", Fiyat = 50.0 },
-				new { Adi = "Çay", Birim = "gr", Fiyat = 0.1 },
-				new { Adi = "Nane", Birim = "demet", Fiyat = 5.0 },
-				new { Adi = "Buz", Birim = "kg", Fiyat = 3.0 }
+				new { Adi = "Yoğurt", Birim = "Kilogram", Fiyat = 20.0 },
+				new { Adi = "Tereyağı", Birim = "Kilogram", Fiyat = 80.0 },
+				new { Adi = "Un", Birim = "Kilogram", Fiyat = 8.0 },
+				new { Adi = "Mercimek", Birim = "Kilogram", Fiyat = 15.0 },
+				new { Adi = "Domates", Birim = "Kilogram", Fiyat = 10.0 },
+				new { Adi = "Salatalık", Birim = "Kilogram", Fiyat = 7.0 },
+				new { Adi = "Soğan", Birim = "Kilogram", Fiyat = 5.0 },
+				new { Adi = "Marul", Birim = "Adet", Fiyat = 3.0 },
+				new { Adi = "Tavuk", Birim = "Kilogram", Fiyat = 30.0 },
+				new { Adi = "Patlıcan", Birim = "Kilogram", Fiyat = 12.0 },
+				new { Adi = "Kıyma", Birim = "Kilogram", Fiyat = 90.0 },
+				new { Adi = "Pirinç", Birim = "Kilogram", Fiyat = 12.0 },
+				new { Adi = "Hamur", Birim = "Kilogram", Fiyat = 25.0 },
+				new { Adi = "Fıstık", Birim = "Kilogram", Fiyat = 100.0 },
+				new { Adi = "Süt", Birim = "Litre", Fiyat = 7.0 },
+				new { Adi = "Limon", Birim = "Adet", Fiyat = 1.5 },
+				new { Adi = "Şeker", Birim = "Kilogram", Fiyat = 6.0 },
+				new { Adi = "Su", Birim = "Litre", Fiyat = 1.0 },
+				new { Adi = "Bulgur", Birim = "Kilogram", Fiyat = 15.0 },
+	            new { Adi = "Şehriye", Birim = "Kilogram", Fiyat = 12.0 },
+				new { Adi = "Tarhana", Birim = "Kilogram", Fiyat = 25.0 },
+				new { Adi = "Havuç", Birim = "Kilogram", Fiyat = 8.0 },
+				new { Adi = "Kabak", Birim = "Kilogram", Fiyat = 10.0 },
+				new { Adi = "Patates", Birim = "Kilogram", Fiyat = 6.0 },
+				new { Adi = "Balık", Birim = "Kilogram", Fiyat = 45.0 },
+				new { Adi = "Kuzu Eti", Birim = "Kilogram", Fiyat = 80.0 },
+				new { Adi = "Biber", Birim = "Kilogram", Fiyat = 10.0 },
+				new { Adi = "Roka", Birim = "Demet", Fiyat = 5.0 },
+				new { Adi = "Bezelye", Birim = "Kilogram", Fiyat = 14.0 },
+				new { Adi = "İnce Bulgur", Birim = "Kilogram", Fiyat = 18.0 },
+				new { Adi = "Ton Balığı", Birim = "Konserve", Fiyat = 12.0 },
+				new { Adi = "Mısır", Birim = "Kilogram", Fiyat = 7.0 },
+				new { Adi = "Avokado", Birim = "Adet", Fiyat = 15.0 },
+				new { Adi = "Mayonez", Birim = "Kilogram", Fiyat = 18.0 },
+				new { Adi = "Tavuk Göğsü", Birim = "Kilogram", Fiyat = 25.0 },
+				new { Adi = "Makarna", Birim = "Paket", Fiyat = 6.0 },
+				new { Adi = "Enginar", Birim = "Adet", Fiyat = 10.0 },
+				new { Adi = "Zeytinyağı", Birim = "Litre", Fiyat = 40.0 },
+				new { Adi = "Limon Suyu", Birim = "Litre", Fiyat = 20.0 },
+				new { Adi = "Kuskus", Birim = "Kilogram", Fiyat = 10.0 },
+				new { Adi = "Spagetti", Birim = "Paket", Fiyat = 7.0 },
+				new { Adi = "Kaşar Peyniri", Birim = "Kilogram", Fiyat = 35.0 },
+				new { Adi = "Ekmek İçi", Birim = "Adet", Fiyat = 2.0 },
+				new { Adi = "Yufka", Birim = "Adet", Fiyat = 5.0 },
+				new { Adi = "Ceviz", Birim = "Kilogram", Fiyat = 80.0 },
+				new { Adi = "Çikolata", Birim = "Adet", Fiyat = 10.0 },
+				new { Adi = "Kuru Fasulye", Birim = "Kilogram", Fiyat = 12.0 },
+				new { Adi = "Vanilya", Birim = "Paket", Fiyat = 3.0 },
+				new { Adi = "Kedidili", Birim = "Paket", Fiyat = 12.0 },
+				new { Adi = "Kahve", Birim = "Kilogram", Fiyat = 50.0 },
+				new { Adi = "Mascarpone", Birim = "Kilogram", Fiyat = 60.0 },
+				new { Adi = "Meyve", Birim = "Kilogram", Fiyat = 20.0 },
+				new { Adi = "Puding", Birim = "Paket", Fiyat = 8.0 },
+				new { Adi = "Karamel", Birim = "Paket", Fiyat = 15.0 },
+				new { Adi = "Sakız", Birim = "Paket", Fiyat = 5.0 },
+				new { Adi = "Yumurta", Birim = "Adet", Fiyat = 2.5 },
+				new { Adi = "Bal", Birim = "Kilogram", Fiyat = 50.0 },
+				new { Adi = "Çay", Birim = "Kilogram", Fiyat = 30.0 },
+				new { Adi = "Nane", Birim = "Demet", Fiyat = 5.0 },
+				new { Adi = "Buz", Birim = "Kilogram", Fiyat = 3.0 }
 				};
 
 					foreach (var malzeme in malzemeler)
@@ -528,7 +524,7 @@ namespace TarifRehberi
 					{
 						new Malzeme { Adi = "Yoğurt", Miktar = 0.3 },
 						new Malzeme { Adi = "Su", Miktar = 0.2 },
-						new Malzeme { Adi = "Nane", Miktar = 0.01 } // Nane eklemen gerekebilir
+						new Malzeme { Adi = "Nane", Miktar = 0.01 } 
     			    }
 				},
 				new Tarif
@@ -565,10 +561,9 @@ namespace TarifRehberi
 					{
 						new Malzeme { Adi = "Kahve", Miktar = 0.05 },
 						new Malzeme { Adi = "Süt", Miktar = 0.2 },
-						new Malzeme { Adi = "Buz", Miktar = 0.1 } // Buz eklemen gerekebilir
+						new Malzeme { Adi = "Buz", Miktar = 0.1 } 
      			   }
 				},
-   			 // Ana Yemekler
     			new Tarif
 				{
 					Adi = "Tavuk Sote",
@@ -725,7 +720,7 @@ namespace TarifRehberi
 						new Malzeme { Adi = "Tereyağı", Miktar = 0.1 },
 						new Malzeme { Adi = "Şeker", Miktar = 0.2 },
 						new Malzeme { Adi = "Un", Miktar = 0.1 },
-						new Malzeme { Adi = "Yumurta", Miktar = 3.0 } // Yumurta eklemen gerekebilir
+						new Malzeme { Adi = "Yumurta", Miktar = 3.0 } 
     				}
 				},
 				new Tarif
@@ -853,8 +848,6 @@ namespace TarifRehberi
 							object result = command.ExecuteScalar();
 							tarif.Id = result != null && result != DBNull.Value ? Convert.ToInt32(result) : 0;
 						}
-
-						// Malzemeleri eklemek için döngü
 						if (tarif.Id > 0)
 						{
 							foreach (var malzeme in tarif.Malzemeler)
@@ -881,8 +874,6 @@ namespace TarifRehberi
 						}
 						
 					}
-
-						// Fonksiyon tanımı
 						void InsertTarifMalzeme(int malzemeId, int tarifId, double malzemeMiktar)
 					   {
 						string insertTarifMalzeme = @"
@@ -895,12 +886,9 @@ namespace TarifRehberi
 							insertCommand.Parameters.AddWithValue("@MalzemeID", malzemeId);
 							insertCommand.Parameters.AddWithValue("@MalzemeMiktar", malzemeMiktar);
 
-							insertCommand.ExecuteNonQuery(); // Kaydı ekliyoruz.
+							insertCommand.ExecuteNonQuery(); 
 						}
 					   }
-
-
-					MessageBox.Show("Veriler başarıyla eklendi.");
 				}
 			}
 			catch (Exception ex)
